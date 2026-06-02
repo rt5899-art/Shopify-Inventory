@@ -1,64 +1,44 @@
-Shopify Inventory
-A tool for managing and tracking inventory across your Shopify store — sync stock levels, get low-stock alerts, and keep your product catalog up to date.
+# Shopify Inventory Analysis Project
+## Project Overview
+This project focuses on building a data-driven inventory management and analysis solution for an active Shopify store using Power BI. The primary goal is to help businesses optimize stock levels, track product demand trends, prevent costly stockouts, and reduce overstocking risks. By centralizing core sales and store operations metrics, the project empowers store owners to make actionable supply chain and merchandising decisions.
 
-Features
+## Requirements
+To deliver a scalable and highly professional business intelligence dashboard, the project fulfills the following explicit requirements:
 
-View and manage inventory levels for all products and variants
-Sync inventory quantities with your Shopify store via the Admin API
-Low-stock and out-of-stock alerts
-Bulk update inventory across multiple locations
-Export inventory data to CSV for reporting
+Centralized Data Engine: Extraction and transformation of messy e-commerce store exports into a clean relational model.
 
+Core Business Tracking: Implementation of standardized inventory Key Performance Indicators (KPIs) such as total stock on hand, product turnover velocity, stockout vulnerabilities, and capital tied up in inventory.
 
-Prerequisites
+Granular Drill-Down Capability: The dashboard layout must allow users to evaluate high-level business health down to individual product options, variations, and Stock Keeping Units (SKUs).
 
-Node.js v18 or higher
-A Shopify store with Admin API access
-A Shopify API key and secret (see Setup)
+Automated Data Processing: Data structures must support regular refreshes without manual remodeling or visual adjustment overhead.
 
+## Tools and Technologies
+Power BI Desktop: The core development platform used to construct the multi-page analytics report layout, customize design themes (utilizing CY24SU10 structures), and deploy the final interactive visual layer.
 
-Setup
-1. Clone the repository
-bashgit clone https://github.com/rt5899-art/Shopify-Inventory.git
-cd Shopify-Inventory
-2. Install dependencies
-bashnpm install
-3. Configure environment variables
-Create a .env file in the root directory:
-envSHOPIFY_STORE_URL=your-store.myshopify.com
-SHOPIFY_API_KEY=your_api_key
-SHOPIFY_API_SECRET=your_api_secret
-SHOPIFY_ACCESS_TOKEN=your_access_token
-To generate API credentials, go to your Shopify Admin → Apps → Develop apps → create a new app and enable the read_inventory and write_inventory scopes.
-4. Run the application
-bashnpm start
+Power Query Engine (M Language): Used during data ingestion to orchestrate file content parsing, perform structural formatting, define explicit data types, and normalize variable product options.
 
-Usage
-Once running, you can:
+Data Modeling: A robust star/snowflake schema tailored to e-commerce metrics, complete with dedicated dimension tables (e.g., product details, vendor metrics) and optimized fact tracking tables.
 
-View inventory: Browse all products and their current stock levels across locations.
-Update stock: Manually adjust quantities or trigger a sync with Shopify.
-Set alerts: Configure thresholds to be notified when items run low.
-Export: Download a CSV snapshot of your current inventory.
+DAX (Data Analysis Expressions): Utilized to engineer customized measures, time intelligence patterns, and conditional formatting rules to surface critical inventory imbalances.
 
+## Challenges Faced
+Complex Multi-Variant SKU Architectures: E-commerce stores naturally handle highly complex product schemas containing hundreds of unique variant combinations (such as variations in sizes, colors, and designs). Parsing these unstructured rows into logical item relationships presented significant modeling hurdles.
 
-Project Structure
-Shopify-Inventory/
-├── src/
-│   ├── api/          # Shopify API client and helpers
-│   ├── inventory/    # Core inventory logic
-│   └── utils/        # Shared utilities
-├── .env.example      # Example environment config
-├── package.json
-└── README.md
+Asynchronous Logistical Tracking: Aligning the timeline of incoming vendor shipments, real-time sales transactions, and historical inventory audits required building strict data mapping logic to ensure cross-table filtering operates seamlessly.
 
-Contributing
-Contributions are welcome! To get started:
+Visual Clutter Management: Presenting deep analytical data points (such as safety stock flags, vendor performance metrics, and sales velocities) without overwhelming an everyday operational user necessitated iterative user interface refinement and strict control over dashboard spatial distribution.
 
-Fork the repository
-Create a new branch: git checkout -b feature/your-feature
-Make your changes and commit: git commit -m "Add your feature"
-Push to your branch: git push origin feature/your-feature
-Open a Pull Request
+## Key Insights
+Unbalanced Capital Allocation: A significant portion of the business's operating capital can easily get trapped in low-velocity, high-volume products while top-selling core assets frequently face near-stockout conditions.
 
-Please open an issue first for major changes to discuss what you'd like to do.# Shopify-Inventory
+Vendor Dependency Vulnerabilities: Specific supply lines show higher variations in reliability, which deeply compromises safety stock parameters. Isolating vendor-specific metrics exposes exactly which product lines present a high logistical risk.
+
+Seasonal Demand Fluctuations: Mapping historical sales data against real-time stock levels highlights defined seasonal demand spikes. This visibility allows the business to transition from a reactive inventory stance to a proactive, predictive model.
+
+## Recommendations for Future Improvements
+Incorporate Real-Time API Connections: Transition away from static manual spreadsheet exports by configuring direct, real-time Shopify admin REST/GraphQL API connections into the Power BI semantic model. This ensures warehouse personnel look at truly live transactional figures.
+
+Integrate Advanced Predictive Forecasting: Leverage built-in Power BI machine learning visualizations or integrate Python/R forecasting scripts to project future SKU demand based on rolling historical patterns, mitigating human error during reorder cycles.
+
+Incorporate Warehouse Cost Factors: Add explicit columns tracking specific carrying costs, insurance fees, and obsolescence rates per cubic foot of warehouse space. This expansion converts basic inventory tracking into a holistic profitability center dashboard.
