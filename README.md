@@ -1,4 +1,4 @@
-# Shopify Inventory and Revenue Analysis Dashboard
+# Shopify Inventory and Revenue Analysis 
 
 ## Project Overview
 
