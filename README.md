@@ -1,44 +1,62 @@
-# Shopify Inventory Analysis Project
+# Shopify Inventory and Revenue Analysis Dashboard
+
 ## Project Overview
-This project focuses on building a data-driven inventory management and analysis solution for an active Shopify store using Power BI. The primary goal is to help businesses optimize stock levels, track product demand trends, prevent costly stockouts, and reduce overstocking risks. By centralizing core sales and store operations metrics, the project empowers store owners to make actionable supply chain and merchandising decisions.
 
-## Requirements
-To deliver a scalable and highly professional business intelligence dashboard, the project fulfills the following explicit requirements:
+This repository contains a specialized data analytics project built to track supply chain metrics, financial health, and product segment popularity for a Shopify-based fragrance retail operation. The primary purpose of this project is to unify disparate transactional, inventory, and warehouse data into a single, cohesive reporting system. By tracking metrics such as total revenue, gross profit, and warehouse inventory volumes, the dashboard solves the problem of inventory capital tying up and unpredictable revenue pacing, empowering operations managers to make data-driven supply decisions.
 
-Centralized Data Engine: Extraction and transformation of messy e-commerce store exports into a clean relational model.
+### Requirements
 
-Core Business Tracking: Implementation of standardized inventory Key Performance Indicators (KPIs) such as total stock on hand, product turnover velocity, stockout vulnerabilities, and capital tied up in inventory.
+Microsoft Power BI Desktop (Version 2.126 or higher recommended)
 
-Granular Drill-Down Capability: The dashboard layout must allow users to evaluate high-level business health down to individual product options, variations, and Stock Keeping Units (SKUs).
+System memory: Minimum 8 GB RAM
 
-Automated Data Processing: Data structures must support regular refreshes without manual remodeling or visual adjustment overhead.
+Operating System: Microsoft Windows 10 or Windows 11
 
-## Tools and Technologies
-Power BI Desktop: The core development platform used to construct the multi-page analytics report layout, customize design themes (utilizing CY24SU10 structures), and deploy the final interactive visual layer.
+Data Source File: Cleaned e-commerce sales ledger and warehouse stock matrices (CSV or Excel format)
 
-Power Query Engine (M Language): Used during data ingestion to orchestrate file content parsing, perform structural formatting, define explicit data types, and normalize variable product options.
+### Tools and Technologies
 
-Data Modeling: A robust star/snowflake schema tailored to e-commerce metrics, complete with dedicated dimension tables (e.g., product details, vendor metrics) and optimized fact tracking tables.
+Business Intelligence Platform: Microsoft Power BI
 
-DAX (Data Analysis Expressions): Utilized to engineer customized measures, time intelligence patterns, and conditional formatting rules to surface critical inventory imbalances.
+ETL Transformation Software: Power Query
 
-## Challenges Faced
-Complex Multi-Variant SKU Architectures: E-commerce stores naturally handle highly complex product schemas containing hundreds of unique variant combinations (such as variations in sizes, colors, and designs). Parsing these unstructured rows into logical item relationships presented significant modeling hurdles.
+Data Modeling Engine: DAX (Data Analysis Expressions)
 
-Asynchronous Logistical Tracking: Aligning the timeline of incoming vendor shipments, real-time sales transactions, and historical inventory audits required building strict data mapping logic to ensure cross-table filtering operates seamlessly.
+Target Architecture: Single-file tabular data model
 
-Visual Clutter Management: Presenting deep analytical data points (such as safety stock flags, vendor performance metrics, and sales velocities) without overwhelming an everyday operational user necessitated iterative user interface refinement and strict control over dashboard spatial distribution.
+### Challenges Faced
 
-## Key Insights
-Unbalanced Capital Allocation: A significant portion of the business's operating capital can easily get trapped in low-velocity, high-volume products while top-selling core assets frequently face near-stockout conditions.
+Product Name Visualization Fit: The bar chart mapping gross profit across specific products suffered from extensive text truncation due to elongated naming conventions (e.g., Rose Luxe EDP, Vanilla Ember EDP). This layout issue was resolved by adjusting axis margins, implementing text wrap constraints, and shortening redundant strings in the underlying dataset during the transformation stage.
 
-Vendor Dependency Vulnerabilities: Specific supply lines show higher variations in reliability, which deeply compromises safety stock parameters. Isolating vendor-specific metrics exposes exactly which product lines present a high logistical risk.
+Warehouse Slicer Allocation Anomalies: Constructing warehouse filters (WH-BLR, WH-DELHI, WH-MUMBAI) initially generated blank results for closing stock values due to inconsistent outer joins between the inventory ledger and warehouse dimension tables. This was corrected by redesigning the data schema into a proper star schema with continuous relationship links.
 
-Seasonal Demand Fluctuations: Mapping historical sales data against real-time stock levels highlights defined seasonal demand spikes. This visibility allows the business to transition from a reactive inventory stance to a proactive, predictive model.
+Daily Trend Graph Flattening: Mapping revenue on a daily timeline across a compressed 35-day window led to extreme, unreadable spikes. A moving average rolling calculation was structured using DAX to soften erratic day-to-day revenue variations while preserving the true macro-level visual trend lines.
 
-## Recommendations for Future Improvements
-Incorporate Real-Time API Connections: Transition away from static manual spreadsheet exports by configuring direct, real-time Shopify admin REST/GraphQL API connections into the Power BI semantic model. This ensures warehouse personnel look at truly live transactional figures.
+### Key Insights
 
-Integrate Advanced Predictive Forecasting: Leverage built-in Power BI machine learning visualizations or integrate Python/R forecasting scripts to project future SKU demand based on rolling historical patterns, mitigating human error during reorder cycles.
+From dashboard we can infer:
 
-Incorporate Warehouse Cost Factors: Add explicit columns tracking specific carrying costs, insurance fees, and obsolescence rates per cubic foot of warehouse space. This expansion converts basic inventory tracking into a holistic profitability center dashboard.
+![image alt](https://github.com/rt5899-art/Shopify-Inventory/blob/main/ss-%20Shopify.png?raw=true)
+
+
+An evaluation of the metrics processed across the analytical dashboard reveals the following insights into financial and inventory positions:
+
+High-Level Financial Performance Indicators: The operation captured a Total Revenue of 368.84M, bringing in a Total Gross Profit of 66.39M. This establishes an overall Gross Margin percentage of 0.53. Meanwhile, capital tied up in stock reflects a Total Closing Inventory Value of 211.99M.
+
+Fragrance Product Profitability: Rose Luxe EDP stands out as the most profitable individual product line, capturing 6.3M in gross profit. It is followed closely by Vanilla Ember EDP and Oud Royale EDP at 6.0M each, Musk Horizon EDP at 5.9M, and both Oud Royale EDP and Musk Horizon EDP sub-variants reaching 5.8M. The lowest profit segment among the top listings is Citrus Mist EDP at 4.8M.
+
+Fragrance Family Demand Matrix: Evaluating volume distributions by fragrance family demonstrates a highly uniform sales pattern across the top groups. Musk Horizon, Oud Royale, and Rose Luxe lead market demand, each accounting for 16.9K units sold. Cedar Noir follows with 16.1K units, Vanilla Ember registers 15.9K units, and Citrus Mist yields the lowest demand profile at 14.2K units.
+
+Extreme Warehouse Inventory Imbalance: The data highlights a severe centralization of inventory assets. The WH-BLR warehouse holds an overwhelming 211.99M (99.95%) of Total Units Sold and Closing Inventory Value, leaving remaining warehouse locations like WH-DELHI and WH-MUMBAI completely underutilized at an aggregate of just 0M (0.05%).
+
+Temporal Revenue Velocity: Daily revenue flows maintain a relatively steady trajectory between 3M and 5M per day through the first 28 days of the cycle, experiencing a prominent peak near day 27. However, immediately following day 28, the operation experiences a sharp drop-off, tumbling to a cycle low near day 30 before attempting a minor baseline recovery.
+
+### Recommendations for Improvements
+
+Redistribute Capital Allocation From WH-BLR: Holding 99.95% of stock value (211.99M) inside a single geographic hub (WH-BLR) creates an severe supply chain vulnerability. A significant portion of this closing inventory should be reallocated to WH-DELHI and WH-MUMBAI to minimize regional fulfillment delays and mitigate localized logistics bottlenecks.
+
+Investigate Post-Day 28 Revenue Collapse: The sharp collapse in daily revenue immediately following day 28 demands immediate cross-referencing with stock records. Operations should investigate if this downward trend was caused by localized stockouts of top-performing items like Rose Luxe EDP or if it points to a recurring payment gateway malfunction.
+
+Optimize Fragrance Stock Levels Based on Margin Profiles: Citrus Mist brings in both the lowest volume (14.2K units) and the lowest individual gross profit (4.8M). Production priority and warehouse storage space should be reduced for Citrus Mist, freeing up operational capacity to support high-margin items like Rose Luxe EDP (6.3M profit) and top volume drivers like Musk Horizon (16.9K units).
+
+Execute Targeted Campaigns for Mid-Tier Fragrances: Fragrance families like Cedar Noir (16.1K units sold) and Vanilla Ember (15.9K units sold) possess established consumer traction. Minor promotional adjustments or bundle offers could elevate these families to the premium 16.9K volume tier shared by Musk Horizon and Oud Royale.
