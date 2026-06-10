@@ -23,9 +23,9 @@ Financial Summary: Total Revenue stands at 368.84M with a Total Gross Profit of 
 
 Capital Tied in Stock: Total Closing Inventory Value is exceptionally high at 211.99M, which represents a significant portion of capital locked up in unsold goods.
 
-Warehouse Concentration: The WH-BLR warehouse holds 99.95% (211.99M) of the total closing inventory value, indicating a massive geographical imbalance or reporting centralization in the Bangalore hub compared to Delhi and Mumbai.
+Warehouse Concentration: The WH-BLR warehouse holds 99.95% of the total closing inventory value, indicating a massive geographical imbalance or reporting centralization in the Bangalore hub compared to Delhi and Mumbai.
 
-Top Profit Drivers: Rose Luxe EDP leads individual product profitability at 6.3M in gross profit, closely followed by Vanilla Ember EDP (6.0M) and Oud Royale EDP (6.0M).
+Top Profit Drivers: Rose Luxe EDP leads individual product profitability at 6.3M in gross profit, closely followed by Vanilla Ember EDP and Oud Royale EDP.
 
 Fragrance Family Demand: Customer demand is highly uniform across major categories, led tightly by Musk Horizon, Oud Royale, and Rose Luxe, each achieving exactly 16.9K units sold.
 
