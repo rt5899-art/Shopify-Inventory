@@ -1,62 +1,50 @@
-# Shopify Inventory and Revenue Analysis 
+## Shopify Inventory and Sales Performance
+An interactive data analytics project focused on monitoring e-commerce revenue, gross margins, product performance, and warehouse inventory valuation to optimize supply chain efficiency and profitability.
 
-## Project Overview
+### Project Overview
 
-This repository contains a specialized data analytics project built to track supply chain metrics, financial health, and product segment popularity for a Shopify-based fragrance retail operation. The primary purpose of this project is to unify disparate transactional, inventory, and warehouse data into a single, cohesive reporting system. By tracking metrics such as total revenue, gross profit, and warehouse inventory volumes, the dashboard solves the problem of inventory capital tying up and unpredictable revenue pacing, empowering operations managers to make data-driven supply decisions.
+This project delivers an executive-level performance dashboard that consolidates Shopify sales figures and warehouse logistics. By tracking critical KPIs across specific regions, fragrance product lines, and distribution centers, this asset empowers retail managers to balance stock availability against capital health.
 
-### Requirements
+### Tools & Technologies
 
-Microsoft Power BI Desktop (Version 2.126 or higher recommended)
+Data Visualization: Power BI
 
-System memory: Minimum 8 GB RAM
+Data Sources: Shopify Sales Logs, Warehouse Inventory Reports
 
-Operating System: Microsoft Windows 10 or Windows 11
+Core Metrics Tracked: Revenue Tracking, Gross Margin Analysis, Inventory Valuation, SKU Performance
 
-Data Source File: Cleaned e-commerce sales ledger and warehouse stock matrices (CSV or Excel format)
-
-### Tools and Technologies
-
-Business Intelligence Platform: Microsoft Power BI
-
-ETL Transformation Software: Power Query
-
-Data Modeling Engine: DAX (Data Analysis Expressions)
-
-Target Architecture: Single-file tabular data model
-
-### Challenges Faced
-
-Product Name Visualization Fit: The bar chart mapping gross profit across specific products suffered from extensive text truncation due to elongated naming conventions (e.g., Rose Luxe EDP, Vanilla Ember EDP). This layout issue was resolved by adjusting axis margins, implementing text wrap constraints, and shortening redundant strings in the underlying dataset during the transformation stage.
-
-Warehouse Slicer Allocation Anomalies: Constructing warehouse filters (WH-BLR, WH-DELHI, WH-MUMBAI) initially generated blank results for closing stock values due to inconsistent outer joins between the inventory ledger and warehouse dimension tables. This was corrected by redesigning the data schema into a proper star schema with continuous relationship links.
-
-Daily Trend Graph Flattening: Mapping revenue on a daily timeline across a compressed 35-day window led to extreme, unreadable spikes. A moving average rolling calculation was structured using DAX to soften erratic day-to-day revenue variations while preserving the true macro-level visual trend lines.
-
-### Key Insights
-
-From dashboard we can infer:
+#### Dasboard Preview
 
 ![image alt](https://github.com/rt5899-art/Shopify-Inventory/blob/main/ss-%20Shopify.png?raw=true)
 
+### Key Business Insights
 
-An evaluation of the metrics processed across the analytical dashboard reveals the following insights into financial and inventory positions:
+Financial Summary: Total Revenue stands at 368.84M with a Total Gross Profit of 66.39M, maintaining a healthy Gross Margin of 53%.
 
-High-Level Financial Performance Indicators: The operation captured a Total Revenue of 368.84M, bringing in a Total Gross Profit of 66.39M. This establishes an overall Gross Margin percentage of 0.53. Meanwhile, capital tied up in stock reflects a Total Closing Inventory Value of 211.99M.
+Capital Tied in Stock: Total Closing Inventory Value is exceptionally high at 211.99M, which represents a significant portion of capital locked up in unsold goods.
 
-Fragrance Product Profitability: Rose Luxe EDP stands out as the most profitable individual product line, capturing 6.3M in gross profit. It is followed closely by Vanilla Ember EDP and Oud Royale EDP at 6.0M each, Musk Horizon EDP at 5.9M, and both Oud Royale EDP and Musk Horizon EDP sub-variants reaching 5.8M. The lowest profit segment among the top listings is Citrus Mist EDP at 4.8M.
+Warehouse Concentration: The WH-BLR warehouse holds 99.95% (211.99M) of the total closing inventory value, indicating a massive geographical imbalance or reporting centralization in the Bangalore hub compared to Delhi and Mumbai.
 
-Fragrance Family Demand Matrix: Evaluating volume distributions by fragrance family demonstrates a highly uniform sales pattern across the top groups. Musk Horizon, Oud Royale, and Rose Luxe lead market demand, each accounting for 16.9K units sold. Cedar Noir follows with 16.1K units, Vanilla Ember registers 15.9K units, and Citrus Mist yields the lowest demand profile at 14.2K units.
+Top Profit Drivers: Rose Luxe EDP leads individual product profitability at 6.3M in gross profit, closely followed by Vanilla Ember EDP (6.0M) and Oud Royale EDP (6.0M).
 
-Extreme Warehouse Inventory Imbalance: The data highlights a severe centralization of inventory assets. The WH-BLR warehouse holds an overwhelming 211.99M (99.95%) of Total Units Sold and Closing Inventory Value, leaving remaining warehouse locations like WH-DELHI and WH-MUMBAI completely underutilized at an aggregate of just 0M (0.05%).
+Fragrance Family Demand: Customer demand is highly uniform across major categories, led tightly by Musk Horizon, Oud Royale, and Rose Luxe, each achieving exactly 16.9K units sold.
 
-Temporal Revenue Velocity: Daily revenue flows maintain a relatively steady trajectory between 3M and 5M per day through the first 28 days of the cycle, experiencing a prominent peak near day 27. However, immediately following day 28, the operation experiences a sharp drop-off, tumbling to a cycle low near day 30 before attempting a minor baseline recovery.
+Daily Revenue Volatility: Daily sales hover consistently between 3M and 5M throughout the month, before experiencing a sharp downward drop on day 30.
 
-### Recommendations for Improvements
+### Strategic Recommendations
 
-Redistribute Capital Allocation From WH-BLR: Holding 99.95% of stock value (211.99M) inside a single geographic hub (WH-BLR) creates an severe supply chain vulnerability. A significant portion of this closing inventory should be reallocated to WH-DELHI and WH-MUMBAI to minimize regional fulfillment delays and mitigate localized logistics bottlenecks.
+High Inventory Value vs. Capital Efficiency Insight ➔ Closing inventory value (211.99M) represents over 57% of total revenue, indicating slow-moving stock that bottlenecks cash flow.
 
-Investigate Post-Day 28 Revenue Collapse: The sharp collapse in daily revenue immediately following day 28 demands immediate cross-referencing with stock records. Operations should investigate if this downward trend was caused by localized stockouts of top-performing items like Rose Luxe EDP or if it points to a recurring payment gateway malfunction.
+Action ➔ Implement an ABC inventory matrix to isolate low-velocity SKUs and launch targeted promotional bundles on slower fragrance lines to liquidate excess stock.
 
-Optimize Fragrance Stock Levels Based on Margin Profiles: Citrus Mist brings in both the lowest volume (14.2K units) and the lowest individual gross profit (4.8M). Production priority and warehouse storage space should be reduced for Citrus Mist, freeing up operational capacity to support high-margin items like Rose Luxe EDP (6.3M profit) and top volume drivers like Musk Horizon (16.9K units).
+Severe Warehouse Distribution Disparity Insight ➔ WH-BLR accounts for 99.95% of inventory volume, while WH-DELHI and WH-MUMBAI registers near 0%.
 
-Execute Targeted Campaigns for Mid-Tier Fragrances: Fragrance families like Cedar Noir (16.1K units sold) and Vanilla Ember (15.9K units sold) possess established consumer traction. Minor promotional adjustments or bundle offers could elevate these families to the premium 16.9K volume tier shared by Musk Horizon and Oud Royale.
+Action ➔ Conduct an immediate audit to verify if this is a data logging error or actual physical centralization. If factual, cross-dock and redistribute popular SKUs to Delhi and Mumbai hubs to lower regional delivery costs and transit times.
+
+Sustained Profit Maximization Insight ➔ Rose Luxe, Vanilla Ember, and Oud Royale generate the highest profit ceilings while maintaining consistent 16K+ unit sales volume.
+
+Action ➔ Prioritize supplier raw material allocations for these three high-margin fragrance bases to prevent stockouts during peak market cycles.
+
+End-of-Month Revenue Drop Insight ➔ Revenue dips sharply at the 30-day mark.
+
+Action ➔ Launch recurring end-of-month flash sales or subscriber-exclusive rewards to counter the predictable monthly closing sales slump.
