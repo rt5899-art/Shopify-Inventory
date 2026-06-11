@@ -26,19 +26,19 @@ Power BI: Interactive dashboard creation and data visualization.
 
 ### Strategic Recommendations
 
-* 1. High-Demand Stock Optimization
+ High-Demand Stock Optimization
 
 Insight: Running Shoes and Walking Shoes generate over 60% of total revenue.
 
 * Action: Allocate higher inventory budgets to these two categories to prevent stockouts during peak demand cycles.
 
-* 2. Targeted Regional Marketing
+ Targeted Regional Marketing
 
 Insight: Texas, California, and Florida contribute disproportionately to overall sales.
 
 * Action: Launch localized digital ad campaigns and exclusive regional promotions in these high-performing states to maximize ROI.
 
-* 3. Gateway Checkout Optimization
+ Gateway Checkout Optimization
 
 Insight: Shopify Payments is the top legitimate revenue driver, but manual and alternative payment methods still hold significant share.
 
