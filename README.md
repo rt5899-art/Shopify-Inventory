@@ -11,7 +11,8 @@ Power BI: Interactive dashboard creation and data visualization.
 
 #### Dashboard Preview
 
-![image alt](https://github.com/rt5899-art/Shopify-Inventory/blob/main/Shopify_sales.png?raw=true)
+![image alt](<img width="1327" height="743" alt="image" src="https://github.com/user-attachments/assets/9360996b-8190-4150-8e30-02836748dc92" />
+)
 
 
 ### Key Business Insights
